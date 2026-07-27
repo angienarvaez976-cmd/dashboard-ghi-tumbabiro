@@ -1,0 +1,15 @@
+Serie,Mejor_enfoque,MAPE_mejor,MAPE_RF,MAPE_XGB,MAPE_LSTM,Ganador_absoluto,MAPE_ganador
+GHI_Diaria,SARIMAX exógenas,13.36,11.23,11.74,14.07,Random Forest,11.23
+GHI_Manana,SARIMAX exógenas,17.76,17.81,17.23,19.55,XGBoost,17.23
+GHI_Tarde,SARIMAX exógenas,10.21,11.71,8.89,13.3,XGBoost,8.89
+GHI_hora_07h,Univariado 1 paso,30.72,26.63,29.95,28.43,Random Forest,26.63
+GHI_hora_08h,SARIMAX exógenas,29.23,28.01,28.16,28.36,Random Forest,28.01
+GHI_hora_09h,SARIMAX exógenas,22.61,23.35,23.84,27.76,SARIMAX exógenas,22.61
+GHI_hora_10h,Univariado estático,20.9,17.64,20.56,20.59,Random Forest,17.64
+GHI_hora_11h,SARIMAX exógenas,15.69,14.86,14.86,17.35,Random Forest,14.86
+GHI_hora_12h,SARIMAX exógenas,17.66,17.18,16.89,17.4,XGBoost,16.89
+GHI_hora_13h,SARIMAX exógenas,13.31,13.69,14.26,15.02,SARIMAX exógenas,13.31
+GHI_hora_14h,SARIMAX exógenas,14.28,13.94,17.57,18.51,Random Forest,13.94
+GHI_hora_15h,SARIMAX exógenas,16.27,20.1,21.44,23.14,SARIMAX exógenas,16.27
+GHI_hora_16h,SARIMAX exógenas,19.84,26.97,30.56,30.35,SARIMAX exógenas,19.84
+GHI_hora_17h,SARIMAX exógenas,26.2,37.36,38.44,35.45,SARIMAX exógenas,26.2

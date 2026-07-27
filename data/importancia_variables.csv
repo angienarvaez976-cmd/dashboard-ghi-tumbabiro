@@ -1,0 +1,141 @@
+Serie,Modelo,Variable,Importancia
+GHI_Diaria,Random Forest,Altura Solar en Grados,0.0753998619596155
+GHI_Diaria,Random Forest,Azimut Solar en Grados,0.07969736519035431
+GHI_Diaria,Random Forest,Temperatura Ambiente en C,0.636453180957941
+GHI_Diaria,Random Forest,Velociad del Viento en m/s,0.06925082425332955
+GHI_Diaria,Random Forest,lag1,0.13919876763875955
+GHI_Diaria,XGBoost,Altura Solar en Grados,0.05660761892795563
+GHI_Diaria,XGBoost,Azimut Solar en Grados,0.07303867489099503
+GHI_Diaria,XGBoost,Temperatura Ambiente en C,0.6704754829406738
+GHI_Diaria,XGBoost,Velociad del Viento en m/s,0.0689397007226944
+GHI_Diaria,XGBoost,lag1,0.1309385448694229
+GHI_Manana,Random Forest,Altura Solar en Grados,0.13215622377152447
+GHI_Manana,Random Forest,Azimut Solar en Grados,0.08926632686632965
+GHI_Manana,Random Forest,Temperatura Ambiente en C,0.43359815171837934
+GHI_Manana,Random Forest,Velociad del Viento en m/s,0.11887904913081693
+GHI_Manana,Random Forest,lag1,0.22610024851294974
+GHI_Manana,XGBoost,Altura Solar en Grados,0.10210426896810532
+GHI_Manana,XGBoost,Azimut Solar en Grados,0.10394436866044998
+GHI_Manana,XGBoost,Temperatura Ambiente en C,0.4950440227985382
+GHI_Manana,XGBoost,Velociad del Viento en m/s,0.09074433147907257
+GHI_Manana,XGBoost,lag1,0.20816299319267273
+GHI_Tarde,Random Forest,Altura Solar en Grados,0.10062698271291605
+GHI_Tarde,Random Forest,Azimut Solar en Grados,0.07389303136038546
+GHI_Tarde,Random Forest,Temperatura Ambiente en C,0.6624477840133786
+GHI_Tarde,Random Forest,Velociad del Viento en m/s,0.0672710747082243
+GHI_Tarde,Random Forest,lag1,0.09576112720509557
+GHI_Tarde,XGBoost,Altura Solar en Grados,0.08708913624286652
+GHI_Tarde,XGBoost,Azimut Solar en Grados,0.0963238999247551
+GHI_Tarde,XGBoost,Temperatura Ambiente en C,0.6532820463180542
+GHI_Tarde,XGBoost,Velociad del Viento en m/s,0.07368210703134537
+GHI_Tarde,XGBoost,lag1,0.08962278813123703
+GHI_hora_07h,Random Forest,Altura Solar en Grados,0.4838946309218087
+GHI_hora_07h,Random Forest,Azimut Solar en Grados,0.07630094385497248
+GHI_hora_07h,Random Forest,Temperatura Ambiente en C,0.19724333072265077
+GHI_hora_07h,Random Forest,Velociad del Viento en m/s,0.12635095304138977
+GHI_hora_07h,Random Forest,lag1,0.11621014145917831
+GHI_hora_07h,XGBoost,Altura Solar en Grados,0.4586784839630127
+GHI_hora_07h,XGBoost,Azimut Solar en Grados,0.06442129611968994
+GHI_hora_07h,XGBoost,Temperatura Ambiente en C,0.17933669686317444
+GHI_hora_07h,XGBoost,Velociad del Viento en m/s,0.21242856979370117
+GHI_hora_07h,XGBoost,lag1,0.08513489365577698
+GHI_hora_08h,Random Forest,Altura Solar en Grados,0.28210813694437215
+GHI_hora_08h,Random Forest,Azimut Solar en Grados,0.11483501081100533
+GHI_hora_08h,Random Forest,Temperatura Ambiente en C,0.20840424728274148
+GHI_hora_08h,Random Forest,Velociad del Viento en m/s,0.18705904476452548
+GHI_hora_08h,Random Forest,lag1,0.20759356019735556
+GHI_hora_08h,XGBoost,Altura Solar en Grados,0.2214871048927307
+GHI_hora_08h,XGBoost,Azimut Solar en Grados,0.12604959309101105
+GHI_hora_08h,XGBoost,Temperatura Ambiente en C,0.19929349422454834
+GHI_hora_08h,XGBoost,Velociad del Viento en m/s,0.29752033948898315
+GHI_hora_08h,XGBoost,lag1,0.15564945340156555
+GHI_hora_09h,Random Forest,Altura Solar en Grados,0.12763216846766628
+GHI_hora_09h,Random Forest,Azimut Solar en Grados,0.11921591019504474
+GHI_hora_09h,Random Forest,Temperatura Ambiente en C,0.49235740488212604
+GHI_hora_09h,Random Forest,Velociad del Viento en m/s,0.11183511392137145
+GHI_hora_09h,Random Forest,lag1,0.14895940253379142
+GHI_hora_09h,XGBoost,Altura Solar en Grados,0.11025924980640411
+GHI_hora_09h,XGBoost,Azimut Solar en Grados,0.1272924691438675
+GHI_hora_09h,XGBoost,Temperatura Ambiente en C,0.5144994854927063
+GHI_hora_09h,XGBoost,Velociad del Viento en m/s,0.11012783646583557
+GHI_hora_09h,XGBoost,lag1,0.13782097399234772
+GHI_hora_10h,Random Forest,Altura Solar en Grados,0.08793932171985398
+GHI_hora_10h,Random Forest,Azimut Solar en Grados,0.08736950795258558
+GHI_hora_10h,Random Forest,Temperatura Ambiente en C,0.6347759629300479
+GHI_hora_10h,Random Forest,Velociad del Viento en m/s,0.08308525366681688
+GHI_hora_10h,Random Forest,lag1,0.10682995373069579
+GHI_hora_10h,XGBoost,Altura Solar en Grados,0.0756271630525589
+GHI_hora_10h,XGBoost,Azimut Solar en Grados,0.10835092514753342
+GHI_hora_10h,XGBoost,Temperatura Ambiente en C,0.5972487926483154
+GHI_hora_10h,XGBoost,Velociad del Viento en m/s,0.0913088470697403
+GHI_hora_10h,XGBoost,lag1,0.1274641752243042
+GHI_hora_11h,Random Forest,Altura Solar en Grados,0.11501571981828754
+GHI_hora_11h,Random Forest,Azimut Solar en Grados,0.09278560470657625
+GHI_hora_11h,Random Forest,Temperatura Ambiente en C,0.5728548271071251
+GHI_hora_11h,Random Forest,Velociad del Viento en m/s,0.07667131577881817
+GHI_hora_11h,Random Forest,lag1,0.142672532589193
+GHI_hora_11h,XGBoost,Altura Solar en Grados,0.09334062039852142
+GHI_hora_11h,XGBoost,Azimut Solar en Grados,0.08424286544322968
+GHI_hora_11h,XGBoost,Temperatura Ambiente en C,0.6109292507171631
+GHI_hora_11h,XGBoost,Velociad del Viento en m/s,0.082901731133461
+GHI_hora_11h,XGBoost,lag1,0.12858551740646362
+GHI_hora_12h,Random Forest,Altura Solar en Grados,0.10292743080702077
+GHI_hora_12h,Random Forest,Azimut Solar en Grados,0.109182864061633
+GHI_hora_12h,Random Forest,Temperatura Ambiente en C,0.5923179340255829
+GHI_hora_12h,Random Forest,Velociad del Viento en m/s,0.07972113955120505
+GHI_hora_12h,Random Forest,lag1,0.11585063155455831
+GHI_hora_12h,XGBoost,Altura Solar en Grados,0.08187856525182724
+GHI_hora_12h,XGBoost,Azimut Solar en Grados,0.13583509624004364
+GHI_hora_12h,XGBoost,Temperatura Ambiente en C,0.5905043482780457
+GHI_hora_12h,XGBoost,Velociad del Viento en m/s,0.08522128313779831
+GHI_hora_12h,XGBoost,lag1,0.10656071454286575
+GHI_hora_13h,Random Forest,Altura Solar en Grados,0.14338890105441413
+GHI_hora_13h,Random Forest,Azimut Solar en Grados,0.11912151647259976
+GHI_hora_13h,Random Forest,Temperatura Ambiente en C,0.48367839351584235
+GHI_hora_13h,Random Forest,Velociad del Viento en m/s,0.0925375377121506
+GHI_hora_13h,Random Forest,lag1,0.16127365124499315
+GHI_hora_13h,XGBoost,Altura Solar en Grados,0.149789497256279
+GHI_hora_13h,XGBoost,Azimut Solar en Grados,0.14062276482582092
+GHI_hora_13h,XGBoost,Temperatura Ambiente en C,0.48991355299949646
+GHI_hora_13h,XGBoost,Velociad del Viento en m/s,0.09691636264324188
+GHI_hora_13h,XGBoost,lag1,0.12275783717632294
+GHI_hora_14h,Random Forest,Altura Solar en Grados,0.134057405748863
+GHI_hora_14h,Random Forest,Azimut Solar en Grados,0.10254516027930861
+GHI_hora_14h,Random Forest,Temperatura Ambiente en C,0.5319867047475576
+GHI_hora_14h,Random Forest,Velociad del Viento en m/s,0.10597292287696468
+GHI_hora_14h,Random Forest,lag1,0.1254378063473062
+GHI_hora_14h,XGBoost,Altura Solar en Grados,0.10760611295700073
+GHI_hora_14h,XGBoost,Azimut Solar en Grados,0.1326402723789215
+GHI_hora_14h,XGBoost,Temperatura Ambiente en C,0.5209068059921265
+GHI_hora_14h,XGBoost,Velociad del Viento en m/s,0.12396986037492752
+GHI_hora_14h,XGBoost,lag1,0.11487700045108795
+GHI_hora_15h,Random Forest,Altura Solar en Grados,0.1992540374458499
+GHI_hora_15h,Random Forest,Azimut Solar en Grados,0.10228210621710097
+GHI_hora_15h,Random Forest,Temperatura Ambiente en C,0.49707854154141934
+GHI_hora_15h,Random Forest,Velociad del Viento en m/s,0.09997134860063292
+GHI_hora_15h,Random Forest,lag1,0.10141396619499692
+GHI_hora_15h,XGBoost,Altura Solar en Grados,0.17333757877349854
+GHI_hora_15h,XGBoost,Azimut Solar en Grados,0.12251045554876328
+GHI_hora_15h,XGBoost,Temperatura Ambiente en C,0.4740157127380371
+GHI_hora_15h,XGBoost,Velociad del Viento en m/s,0.13370025157928467
+GHI_hora_15h,XGBoost,lag1,0.09643597155809402
+GHI_hora_16h,Random Forest,Altura Solar en Grados,0.12460504183242571
+GHI_hora_16h,Random Forest,Azimut Solar en Grados,0.09612891392895617
+GHI_hora_16h,Random Forest,Temperatura Ambiente en C,0.5814985695612618
+GHI_hora_16h,Random Forest,Velociad del Viento en m/s,0.09218486372439344
+GHI_hora_16h,Random Forest,lag1,0.10558261095296304
+GHI_hora_16h,XGBoost,Altura Solar en Grados,0.10203463584184647
+GHI_hora_16h,XGBoost,Azimut Solar en Grados,0.1175897866487503
+GHI_hora_16h,XGBoost,Temperatura Ambiente en C,0.5758387446403503
+GHI_hora_16h,XGBoost,Velociad del Viento en m/s,0.11275573819875717
+GHI_hora_16h,XGBoost,lag1,0.0917811170220375
+GHI_hora_17h,Random Forest,Altura Solar en Grados,0.3177975085259242
+GHI_hora_17h,Random Forest,Azimut Solar en Grados,0.1058031671988868
+GHI_hora_17h,Random Forest,Temperatura Ambiente en C,0.3403115042400757
+GHI_hora_17h,Random Forest,Velociad del Viento en m/s,0.06484560939861878
+GHI_hora_17h,Random Forest,lag1,0.17124221063649459
+GHI_hora_17h,XGBoost,Altura Solar en Grados,0.28488701581954956
+GHI_hora_17h,XGBoost,Azimut Solar en Grados,0.14041651785373688
+GHI_hora_17h,XGBoost,Temperatura Ambiente en C,0.3548172116279602
+GHI_hora_17h,XGBoost,Velociad del Viento en m/s,0.06860551983118057
+GHI_hora_17h,XGBoost,lag1,0.15127362310886383
