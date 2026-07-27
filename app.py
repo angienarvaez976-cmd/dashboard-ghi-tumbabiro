@@ -122,33 +122,78 @@ pred_df, resumen_df, imp_df = cargar_datos()
 SERIES = list(resumen_df["Serie"])
 
 # -----------------------------------------------------------------
-# Barra lateral — navegación
+# Navegación: barra superior con íconos + botones anterior/siguiente
 # -----------------------------------------------------------------
-st.sidebar.title("☀️ Dashboard Tumbabiro")
-st.sidebar.caption(
-    "Pronóstico de Irradiancia Global Horizontal (GHI) — "
-    "Comparación de modelos clásicos vs. Machine Learning"
-)
-seccion = st.sidebar.radio(
-    "Sección",
-    [
-        "Portada",
-        "Resumen general",
-        "Comparación por serie",
-        "Importancia de variables",
-        "Tabla de resultados",
-    ],
+SECCIONES = [
+    {"nombre": "Portada", "icono": "🎓"},
+    {"nombre": "Resumen general", "icono": "📊"},
+    {"nombre": "Comparación por serie", "icono": "📈"},
+    {"nombre": "Importancia de variables", "icono": "🧩"},
+    {"nombre": "Tabla de resultados", "icono": "📋"},
+]
+
+if "page_idx" not in st.session_state:
+    st.session_state.page_idx = 0
+
+st.markdown(
+    """
+    <style>
+    div[data-testid="stHorizontalBlock"] div[data-testid="stButton"] button {
+        border-radius: 8px 8px 0 0;
+        font-weight: 600;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
 )
 
-st.sidebar.divider()
-st.sidebar.markdown(
-    "**Modelos evaluados:**\n"
-    "- Clásico: ARIMA / SARIMAX\n"
-    "- Ensamble: Random Forest, XGBoost\n"
-    "- Red neuronal: LSTM\n\n"
-    "**Partición:** 80/20 cronológica\n\n"
-    "**Métrica:** MAPE (%) sobre 73 días de prueba"
+st.markdown(
+    "<h3 style='margin-bottom:0.2rem;'>☀️ Dashboard Tumbabiro</h3>"
+    "<p style='color:#888; margin-top:0; margin-bottom:0.8rem;'>"
+    "Pronóstico de Irradiancia Global Horizontal (GHI) — Modelos clásicos vs. Machine Learning"
+    "</p>",
+    unsafe_allow_html=True,
 )
+
+nav_cols = st.columns(len(SECCIONES))
+for i, sec in enumerate(SECCIONES):
+    with nav_cols[i]:
+        es_activa = st.session_state.page_idx == i
+        if st.button(
+            f"{sec['icono']}  {sec['nombre']}",
+            key=f"nav_{i}",
+            type="primary" if es_activa else "secondary",
+            use_container_width=True,
+        ):
+            st.session_state.page_idx = i
+            st.rerun()
+
+st.divider()
+
+seccion = SECCIONES[st.session_state.page_idx]["nombre"]
+
+
+def boton_navegacion(idx):
+    """Botones Anterior/Siguiente a mitad del dashboard, como pasar página."""
+    st.markdown("<div style='margin-top:2.5rem;'></div>", unsafe_allow_html=True)
+    st.divider()
+    c1, c2, c3 = st.columns([1, 2, 1])
+    with c1:
+        if idx > 0:
+            if st.button("⬅  Sección anterior", key=f"prev_{idx}", use_container_width=True):
+                st.session_state.page_idx = idx - 1
+                st.rerun()
+    with c2:
+        st.markdown(
+            f"<p style='text-align:center; color:#999;'>Sección {idx + 1} de {len(SECCIONES)}</p>",
+            unsafe_allow_html=True,
+        )
+    with c3:
+        if idx < len(SECCIONES) - 1:
+            if st.button("Siguiente sección  ➡", key=f"next_{idx}", use_container_width=True):
+                st.session_state.page_idx = idx + 1
+                st.rerun()
+
 
 # ===================================================================
 # SECCIÓN 0 — PORTADA
@@ -163,6 +208,7 @@ if seccion == "Portada":
                 <hr>
                 <div class="titulo-tesis">
                     Análisis predictivo de la Irradiancia Global Horizontal (GHI)
+
                     mediante modelos clásicos y modelos de aprendizaje supervisado:
                     Caso Tumbabiro
                 </div>
@@ -178,12 +224,13 @@ if seccion == "Portada":
         st.divider()
         st.markdown(
             "<p style='text-align:center; color:#777;'>"
-            "Usa el menú de la izquierda para explorar los resultados del análisis: "
+            "Usa el menú superior o el botón de abajo para explorar los resultados: "
             "resumen general, comparación por serie, importancia de variables y la "
             "tabla consolidada de resultados."
             "</p>",
             unsafe_allow_html=True,
         )
+        boton_navegacion(st.session_state.page_idx)
 
 # ===================================================================
 # SECCIÓN 1 — RESUMEN GENERAL
@@ -262,6 +309,7 @@ elif seccion == "Resumen general":
             "Random Forest y XGBoost dominan en las horas centrales del día (07h–14h), mientras "
             "que SARIMAX con exógenas es superior en las horas de la tarde (15h–17h)."
         )
+        boton_navegacion(st.session_state.page_idx)
 
 # ===================================================================
 # SECCIÓN 2 — COMPARACIÓN POR SERIE
@@ -365,6 +413,7 @@ elif seccion == "Comparación por serie":
                 file_name=f"predicciones_{serie_sel}.csv",
                 mime="text/csv",
             )
+        boton_navegacion(st.session_state.page_idx)
 
 # ===================================================================
 # SECCIÓN 3 — IMPORTANCIA DE VARIABLES
@@ -435,6 +484,7 @@ elif seccion == "Importancia de variables":
         )
         fig_prom.update_layout(yaxis_title="Importancia promedio", xaxis_title="")
         st.plotly_chart(fig_prom, use_container_width=True)
+        boton_navegacion(st.session_state.page_idx)
 
 # ===================================================================
 # SECCIÓN 4 — TABLA DE RESULTADOS
@@ -492,3 +542,4 @@ elif seccion == "Tabla de resultados":
             "Random Forest, XGBoost y LSTM (mejor configuración por grid search) sobre las "
             "14 series de GHI, partición cronológica 80/20."
         )
+        boton_navegacion(st.session_state.page_idx)
