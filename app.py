@@ -50,7 +50,7 @@ st.markdown(
     .portada-uce {
         font-family: Georgia, 'Times New Roman', serif;
         text-align: center;
-        padding: 2.5rem 1rem 1.5rem 1rem;
+        padding: 0.5rem 1rem 1rem 1rem;
     }
     .portada-uce .institucion {
         font-size: 1.15rem;
@@ -61,7 +61,7 @@ st.markdown(
     .portada-uce .facultad {
         font-size: 1.05rem;
         color: #444;
-        margin-bottom: 2.2rem;
+        margin-bottom: 1.2rem;
     }
     .portada-uce hr {
         width: 60%;
@@ -201,24 +201,21 @@ def boton_navegacion(idx):
 if seccion == "Portada":
     with st.container(key="portada_page"):
         st.markdown(
-            """
-            <div class="portada-uce">
-                <div class="institucion">UNIVERSIDAD CENTRAL DEL ECUADOR</div>
-                <div class="facultad">Facultad de Ciencias Económicas</div>
-                <hr>
-                <div class="titulo-tesis">
-                    Análisis predictivo de la Irradiancia Global Horizontal (GHI)
-
-                    mediante modelos clásicos y modelos de aprendizaje supervisado:
-                    Caso Tumbabiro
-                </div>
-                <div class="subtitulo">
-                    Trabajo de titulación – Opción: Proyecto de investigación
-                    presentado para obtener el grado académico de Ingeniera
-                    Estadística.
-                </div>
-            </div>
-            """,
+            '<div class="portada-uce">'
+            '<div class="institucion">UNIVERSIDAD CENTRAL DEL ECUADOR</div>'
+            '<div class="facultad">Facultad de Ciencias Económicas</div>'
+            '<hr>'
+            '<div class="titulo-tesis">'
+            'Análisis predictivo de la Irradiancia Global Horizontal (GHI) '
+            'mediante modelos clásicos y modelos de aprendizaje supervisado: '
+            'Caso Tumbabiro'
+            '</div>'
+            '<div class="subtitulo">'
+            'Trabajo de titulación – Opción: Proyecto de investigación '
+            'presentado para obtener el grado académico de Ingeniera '
+            'Estadística.'
+            '</div>'
+            '</div>',
             unsafe_allow_html=True,
         )
         st.divider()
