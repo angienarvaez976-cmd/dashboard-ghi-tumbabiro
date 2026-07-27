@@ -13,7 +13,15 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
+import plotly.io as pio
 import streamlit as st
+
+# Plantilla cálida aplicada a todos los gráficos (fondo crema de tarjeta)
+pio.templates["calido"] = pio.templates["plotly_white"]
+pio.templates["calido"].layout.paper_bgcolor = "#FFFDF8"
+pio.templates["calido"].layout.plot_bgcolor = "#FFFDF8"
+pio.templates["calido"].layout.font.color = "#2b2b2b"
+pio.templates.default = "calido"
 
 # -----------------------------------------------------------------
 # Configuración general de la página
@@ -47,6 +55,82 @@ st.markdown(
         animation: pageTurn 0.7s ease;
         transform-origin: left center;
     }
+
+    /* ---------- Paleta cálida tipo agro-dashboard ---------- */
+    [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
+        background-color: #F8F4EA;
+    }
+    h1, h2, h3 {
+        color: #234b3d;
+        font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    /* Tarjetas: gráficos y tablas */
+    div[data-testid="stPlotlyChart"], div[data-testid="stDataFrame"] {
+        background-color: #FFFDF8;
+        border-radius: 18px;
+        padding: 1.1rem;
+        box-shadow: 0 2px 10px rgba(47, 125, 103, 0.08);
+        border: 1px solid #EFE7D6;
+    }
+
+    /* Botones de navegación superior */
+    div[data-testid="stButton"] button {
+        border-radius: 10px;
+        font-weight: 600;
+    }
+    div[data-testid="stButton"] button[kind="primary"] {
+        background-color: #2F7D67;
+        border-color: #2F7D67;
+        color: #FFFDF8;
+    }
+    div[data-testid="stButton"] button[kind="secondary"] {
+        background-color: #FFFDF8;
+        border-color: #A8CEBE;
+        color: #2F7D67;
+    }
+
+    /* Tarjetas KPI hechas a mano */
+    .kpi-card {
+        background: #FFFDF8;
+        border-radius: 18px;
+        padding: 1.1rem 1.3rem;
+        box-shadow: 0 2px 10px rgba(47, 125, 103, 0.08);
+        border: 1px solid #EFE7D6;
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        height: 100%;
+    }
+    .kpi-icon {
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        color: #FFFDF8;
+    }
+    .kpi-label {
+        font-size: 0.82rem;
+        color: #6b6b6b;
+        margin-bottom: 0.15rem;
+    }
+    .kpi-value {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        line-height: 1.15;
+    }
+    .kpi-sub {
+        font-size: 0.75rem;
+        color: #2F7D67;
+        font-weight: 600;
+    }
+
+    /* Portada institucional */
     .portada-uce {
         font-family: Georgia, 'Times New Roman', serif;
         text-align: center;
@@ -57,17 +141,18 @@ st.markdown(
         font-weight: 700;
         letter-spacing: 0.5px;
         margin-bottom: 0.15rem;
+        color: #234b3d;
     }
     .portada-uce .facultad {
         font-size: 1.05rem;
-        color: #444;
+        color: #555;
         margin-bottom: 1.2rem;
     }
     .portada-uce hr {
         width: 60%;
         margin: 1.5rem auto;
         border: none;
-        border-top: 2px solid #DD8452;
+        border-top: 2px solid #E3B85B;
     }
     .portada-uce .titulo-tesis {
         font-size: 1.65rem;
@@ -90,12 +175,23 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# Paleta cálida (misma familia de colores en toda la app)
+PALETA = {
+    "crema_fondo": "#F8F4EA",
+    "crema_tarjeta": "#FFFDF8",
+    "verde": "#2F7D67",
+    "verde_claro": "#A8CEBE",
+    "salvia": "#91AA92",
+    "dorado": "#E3B85B",
+    "terracota": "#CE8265",
+}
+
 MODELOS_COLOR = {
-    "Real": "#1a1a1a",
-    "SARIMAX": "#4C72B0",
-    "Random Forest": "#DD8452",
-    "XGBoost": "#55A868",
-    "LSTM": "#8172B2",
+    "Real": "#2b2b2b",
+    "SARIMAX": "#2F7D67",
+    "Random Forest": "#E3B85B",
+    "XGBoost": "#91AA92",
+    "LSTM": "#CE8265",
 }
 
 NOMBRE_SERIE_LEGIBLE = {
@@ -245,19 +341,33 @@ elif seccion == "Resumen general":
         conteo = resumen_df["Ganador_absoluto"].value_counts()
         mape_prom = resumen_df["MAPE_ganador"].mean()
 
+        def kpi_card(icono, color_fondo, etiqueta, valor, sub=""):
+            sub_html = f'<div class="kpi-sub">{sub}</div>' if sub else ""
+            st.markdown(
+                f'<div class="kpi-card">'
+                f'<div class="kpi-icon" style="background:{color_fondo};">{icono}</div>'
+                f'<div><div class="kpi-label">{etiqueta}</div>'
+                f'<div class="kpi-value">{valor}</div>{sub_html}</div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+
         col1, col2, col3, col4 = st.columns(4)
-        col1.metric("MAPE promedio (mejor modelo por serie)", f"{mape_prom:.2f}%")
-        col2.metric("Series totales analizadas", f"{len(resumen_df)}")
-        col3.metric(
-            "Modelo más frecuentemente ganador",
-            conteo.idxmax(),
-            f"{conteo.max()} de {len(resumen_df)} series",
-        )
-        col4.metric(
-            "Mejor serie individual (menor MAPE)",
-            resumen_df.loc[resumen_df["MAPE_ganador"].idxmin(), "Serie"],
-            f"{resumen_df['MAPE_ganador'].min():.2f}%",
-        )
+        with col1:
+            kpi_card("📉", PALETA["verde"], "MAPE promedio (mejor modelo)", f"{mape_prom:.2f}%")
+        with col2:
+            kpi_card("🗂️", PALETA["dorado"], "Series analizadas", f"{len(resumen_df)}")
+        with col3:
+            kpi_card(
+                "🏆", PALETA["salvia"], "Modelo más ganador",
+                conteo.idxmax(), f"{conteo.max()} de {len(resumen_df)} series",
+            )
+        with col4:
+            kpi_card(
+                "🎯", PALETA["terracota"], "Mejor serie individual",
+                resumen_df.loc[resumen_df["MAPE_ganador"].idxmin(), "Serie"],
+                f"MAPE {resumen_df['MAPE_ganador'].min():.2f}%",
+            )
 
         st.divider()
 
@@ -294,11 +404,19 @@ elif seccion == "Resumen general":
             fig_heat = px.imshow(
                 heat_df,
                 text_auto=".1f",
-                color_continuous_scale="RdYlGn_r",
+                color_continuous_scale=[
+                    [0.0, "#2F7D67"],
+                    [0.5, "#E3B85B"],
+                    [1.0, "#CE8265"],
+                ],
                 aspect="auto",
                 labels=dict(color="MAPE (%)"),
             )
-            fig_heat.update_layout(height=500)
+            fig_heat.update_layout(
+                height=500,
+                paper_bgcolor="#FFFDF8",
+                plot_bgcolor="#FFFDF8",
+            )
             st.plotly_chart(fig_heat, use_container_width=True)
 
         st.info(
